@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SM0-yP-Rdl">
-                                <rect key="frame" x="82" y="364" width="250" height="55"/>
+                                <rect key="frame" x="82" y="408" width="250" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.29176541989999999" green="0.42288728780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73S-ws-HAK">
-                                <rect key="frame" x="82" y="264" width="250" height="55"/>
+                                <rect key="frame" x="82" y="308" width="250" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.29176541988443216" green="0.4228872877931289" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -42,6 +42,13 @@
                                     <segue destination="rRM-sj-hLz" kind="show" id="USp-c8-GV3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UNO Game" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="375" translatesAutoresizingMaskIntoConstraints="NO" id="D3c-kd-UnQ">
+                                <rect key="frame" x="121" y="180" width="173" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -113,21 +120,25 @@ Wild: Player decides the next color to be played.</string>
             </objects>
             <point key="canvasLocation" x="1595.6521739130435" y="-174.45652173913044"/>
         </scene>
-        <!--Main game-->
+        <!--Main Game-->
         <scene sceneID="FmL-FN-H9H">
             <objects>
-                <viewController title="Main game" id="PcP-rK-zCT" sceneMemberID="viewController">
+                <viewController title="Main Game" id="PcP-rK-zCT" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vHh-Jc-TUy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Main game goes here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSA-Ad-1uj">
-                                <rect key="frame" x="103" y="131" width="165" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeE-Kd-TGY">
+                                <rect key="frame" x="218" y="353" width="152" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" red="0.58633561981543847" green="0.75979054471209495" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Discard pile fullscreen">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BtH-cr-RTN" kind="show" id="bn6-FQ-ZzI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3Sh-5A-3rc"/>
@@ -136,6 +147,43 @@ Wild: Player decides the next color to be played.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lh-59-rDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1594.2028985507247" y="521.73913043478262"/>
+        </scene>
+        <!--Discard Pile History-->
+        <scene sceneID="ZjN-ZR-Qbj">
+            <objects>
+                <viewController title="Discard Pile History" id="BtH-cr-RTN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dKx-p1-5Wb" customClass="UIScrollView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reverseBlue" translatesAutoresizingMaskIntoConstraints="NO" id="4NP-XF-so6">
+                                <rect key="frame" x="161" y="73" width="92" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plus 4" translatesAutoresizingMaskIntoConstraints="NO" id="at3-If-Z4c">
+                                <rect key="frame" x="161" y="464" width="92" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reverseBlue" translatesAutoresizingMaskIntoConstraints="NO" id="1fZ-up-Xca">
+                                <rect key="frame" x="161" y="334" width="92" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reverseRed" translatesAutoresizingMaskIntoConstraints="NO" id="ipm-1H-S7N">
+                                <rect key="frame" x="161" y="203" width="92" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plus 4" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-tE-BWU">
+                                <rect key="frame" x="161" y="594" width="92" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="WTt-G2-a6R"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zdi-M0-F41" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2339.130434782609" y="521.73913043478262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QQT-aK-VUx">
@@ -156,4 +204,9 @@ Wild: Player decides the next color to be played.</string>
             <point key="canvasLocation" x="-90" y="132"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus 4" width="248" height="380"/>
+        <image name="reverseBlue" width="248" height="380"/>
+        <image name="reverseRed" width="248" height="380"/>
+    </resources>
 </document>

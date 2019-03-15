@@ -2,6 +2,16 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+
+      location = "group:../../../Downloads/reverseBlue.png">
+   </FileRef>
+   <FileRef
+      location = "group:../Uno Game">
+   </FileRef>
+   <FileRef
+      location = "group:../../../Downloads/reverseRed.png">
+   </FileRef>
+   <FileRef
+      location = "self:Uno Game.xcodeproj">
    </FileRef>
 </Workspace>

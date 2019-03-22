@@ -10,15 +10,17 @@ import UIKit
 
 class GameViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var imageView2: UIImageView!
-    @IBOutlet weak var image3: UIImageView!
-    @IBOutlet weak var imageView4: UIImageView!
-    @IBOutlet weak var imageView5: UIImageView!
-    @IBOutlet weak var imageView6: UIImageView!
-    @IBOutlet weak var imageView7: UIImageView!
+    @IBOutlet var playercardImageView: [UIImageView]!   //array of the player cards image view.
     
-    var deck = Set<String>()
+    
+    @IBOutlet weak var discardPileImageView: UIImageView!   //reference to the discard pile
+    
+    var deck: [String] = []             //array of all cards
+    var playerCards: [String] = []      //players cards
+    var cpuCards:[String] = []          //cpu cards
+    var discardPile: [String] = []      //array of played cards
+    
+    let cardSuits = ["green","yellow","blue","red"]
     
     override func viewWillAppear(_ animated: Bool) {
         showCard()
@@ -36,24 +38,36 @@ class GameViewController: UIViewController {
     }
     
     func loadCards(){
-        for i in 1...9{
-          deck.insert("blue\(i)")
-          deck.insert("green\(i)")
-            
+        for suits in cardSuits{
+            for i in 1...9{
+                //integer values appended to each card suit
+                deck.append("\(suits)\(i)")
+            }
         }
+        
+        //share to player 1
+        for _ in 1...playercardImageView.count{
+            playerCards.append(deck.remove(at: Int.random(in: 1...deck.count-1)))
+        }
+        
+        //share to cpu
+        
+        
+        //top card
+        discardPile.append(deck.remove(at: Int.random(in: 1..<deck.count)))
         
     }
     
+    
+    
     func showCard(){
         loadCards()
-        imageView.image = UIImage(named:deck.removeFirst())
-        imageView2.image = UIImage(named:deck.removeFirst())
-        image3.image = UIImage(named:deck.removeFirst())
-        imageView4.image = UIImage(named:deck.removeFirst())
-        imageView5.image = UIImage(named:deck.removeFirst())
-        imageView6.image = UIImage(named:deck.removeFirst())
-        imageView7.image = UIImage(named:deck.removeFirst())
-
+        print(playerCards)
+        for i in 0...playercardImageView.count-1 {
+               playercardImageView[i].image = UIImage(named: playerCards[i] )
+        }
+        discardPileImageView.image = UIImage(named: discardPile[0])
+        
     }
     
 

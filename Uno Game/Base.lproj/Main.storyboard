@@ -19,9 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SM0-yP-Rdl">
-                                <rect key="frame" x="76" y="438" width="250" height="55"/>
+                                <rect key="frame" x="76" y="438" width="285" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.29176541989999999" green="0.42288728780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.29019607843137252" green="0.42352941176470588" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -31,9 +31,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73S-ws-HAK">
-                                <rect key="frame" x="75" y="196" width="250" height="55"/>
+                                <rect key="frame" x="64" y="194" width="297" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.29176541988443216" green="0.4228872877931289" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.29019607843137252" green="0.42352941176470588" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="How to Play">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -42,11 +42,6 @@
                                     <segue destination="rRM-sj-hLz" kind="show" id="USp-c8-GV3"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue4" translatesAutoresizingMaskIntoConstraints="NO" id="ZQv-ZJ-gJp">
-                                <rect key="frame" x="76" y="300" width="50" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.17654693099999999" green="0.17118907580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="green8" translatesAutoresizingMaskIntoConstraints="NO" id="Y4G-Jn-MCj">
                                 <rect key="frame" x="97" y="287" width="50" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -71,6 +66,11 @@
                                 <rect key="frame" x="289" y="300" width="50" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue4" translatesAutoresizingMaskIntoConstraints="NO" id="ZQv-ZJ-gJp">
+                                <rect key="frame" x="64" y="300" width="50" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.17654693099999999" green="0.17118907580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -92,15 +92,15 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The goal of Uno is to be the first player to play all of their cards." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="375" translatesAutoresizingMaskIntoConstraints="NO" id="48M-px-n5B">
                                 <rect key="frame" x="19" y="91" width="374" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="375" translatesAutoresizingMaskIntoConstraints="NO" id="Zcq-w3-83v">
-                                <rect key="frame" x="20" y="318" width="375" height="122"/>
+                                <rect key="frame" x="20" y="347" width="375" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">The game starts with players having 7 cards on their hand. Each player take turns discarding cards. Card discarded must match either the number or the color of the top card in the discard pile. Wild cards can be played regardless of top card. If the player </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -110,15 +110,15 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="375" translatesAutoresizingMaskIntoConstraints="NO" id="weA-H6-dHI">
-                                <rect key="frame" x="20" y="163" width="374" height="122"/>
+                                <rect key="frame" x="21" y="182" width="374" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">The deck consists of 108 cards. There are four "wild cards" and four "draw +4" cards. The colors blue, yellow, red, and green has 2 cards each ranging from "1" to "9", 2 cards each of "draw +2", "skip", and "reverse", and one "0" card each.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="JsG-Jh-6FP"/>
                     </view>
                 </viewController>
@@ -139,18 +139,18 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eta-j3-PCG">
-                                <rect key="frame" x="9" y="76" width="140.66666666666666" height="20.333333333333332"/>
+                                <rect key="frame" x="9" y="76" width="146.33333333333334" height="20.333333333333332"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fs4-a6-JTk">
-                                        <rect key="frame" x="0.0" y="0.0" width="140.66666666666666" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="146.33333333333334" height="20.333333333333332"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g0T-LH-g78">
-                                                <rect key="frame" x="0.0" y="0.0" width="140.66666666666666" height="20.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="146.33333333333334" height="20.333333333333332"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cards in the Deck:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7y8-Pr-dBT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="140.66666666666666" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="146.33333333333334" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -195,18 +195,37 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0df-6T-xq2" userLabel="CPU Cards Stack View">
+                                <rect key="frame" x="53" y="153" width="336" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uno_back" translatesAutoresizingMaskIntoConstraints="NO" id="1zQ-vi-UJM">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="74"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uno_back" translatesAutoresizingMaskIntoConstraints="NO" id="9kh-el-y92">
+                                        <rect key="frame" x="48" y="0.0" width="48" height="74"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uno_back" translatesAutoresizingMaskIntoConstraints="NO" id="ytD-AN-cik">
+                                        <rect key="frame" x="96" y="0.0" width="48" height="74"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uno_back" translatesAutoresizingMaskIntoConstraints="NO" id="xJS-1i-D6t">
+                                        <rect key="frame" x="144" y="0.0" width="48" height="74"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uno_back" translatesAutoresizingMaskIntoConstraints="NO" id="Tvm-PG-xLX">
+                                        <rect key="frame" x="192" y="0.0" width="48" height="74"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uno_back" translatesAutoresizingMaskIntoConstraints="NO" id="0YV-jB-paj">
+                                        <rect key="frame" x="240" y="0.0" width="48" height="74"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uno_back" translatesAutoresizingMaskIntoConstraints="NO" id="Dmo-nL-0zA">
+                                        <rect key="frame" x="288" y="0.0" width="48" height="74"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rfz-0z-6Tb">
                                 <rect key="frame" x="163" y="318" width="86" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugx-sX-jSy">
-                                <rect key="frame" x="292" y="76" width="102" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.63022763000000004" blue="0.83929354010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Game Options">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FpC-HI-A9T">
                                 <rect key="frame" x="296" y="353" width="90" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -237,35 +256,39 @@
                                 <rect key="frame" x="32" y="331" width="94" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="blue1"/>
+                                <state key="normal" image="uno_back"/>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0df-6T-xq2" userLabel="CPU Cards Stack View">
-                                <rect key="frame" x="53" y="153" width="327" height="72"/>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LvP-UF-1Ff">
+                                <rect key="frame" x="290" y="99" width="104" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue0" translatesAutoresizingMaskIntoConstraints="NO" id="1zQ-vi-UJM">
-                                        <rect key="frame" x="0.0" y="0.0" width="45" height="72"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green7" translatesAutoresizingMaskIntoConstraints="NO" id="9kh-el-y92">
-                                        <rect key="frame" x="45" y="0.0" width="48" height="72"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red7" translatesAutoresizingMaskIntoConstraints="NO" id="ytD-AN-cik">
-                                        <rect key="frame" x="93" y="0.0" width="45" height="72"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redPlus2" translatesAutoresizingMaskIntoConstraints="NO" id="xJS-1i-D6t">
-                                        <rect key="frame" x="138" y="0.0" width="48" height="72"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue3" translatesAutoresizingMaskIntoConstraints="NO" id="Tvm-PG-xLX">
-                                        <rect key="frame" x="186" y="0.0" width="48" height="72"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellow8" translatesAutoresizingMaskIntoConstraints="NO" id="0YV-jB-paj">
-                                        <rect key="frame" x="234" y="0.0" width="47" height="72"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellow5" translatesAutoresizingMaskIntoConstraints="NO" id="Dmo-nL-0zA">
-                                        <rect key="frame" x="281" y="0.0" width="46" height="72"/>
-                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kss-7Q-zeg">
+                                        <rect key="frame" x="8" y="15" width="88" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="Restart"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRK-72-qnJ">
+                                        <rect key="frame" x="8" y="53" width="88" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="Fortfeif"/>
+                                    </button>
                                 </subviews>
-                            </stackView>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugx-sX-jSy">
+                                <rect key="frame" x="290" y="64" width="102" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.29019607843137252" green="0.42352941176470588" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Game Options">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="menuButton:" destination="PcP-rK-zCT" eventType="touchUpInside" id="JkW-WG-Ib2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3Sh-5A-3rc"/>
@@ -274,6 +297,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="discardPileImageView" destination="Rfz-0z-6Tb" id="UM7-hh-2if"/>
+                        <outlet property="menuView" destination="LvP-UF-1Ff" id="19f-xI-ffo"/>
                         <outletCollection property="playercardImageView" destination="TIE-3A-SV7" collectionClass="NSMutableArray" id="Qm5-IT-1HS"/>
                         <outletCollection property="playercardImageView" destination="lT5-0u-yvx" collectionClass="NSMutableArray" id="xDA-5m-rpH"/>
                         <outletCollection property="playercardImageView" destination="S6i-wU-3FV" collectionClass="NSMutableArray" id="M6c-D3-F56"/>
@@ -340,18 +364,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="blue0" width="45" height="71"/>
-        <image name="blue1" width="49" height="74"/>
-        <image name="blue3" width="48" height="72"/>
         <image name="blue4" width="49" height="73"/>
         <image name="green7" width="48" height="71"/>
         <image name="green8" width="43" height="67"/>
         <image name="red1" width="45" height="70"/>
         <image name="red5" width="49" height="68"/>
-        <image name="red7" width="45" height="68"/>
-        <image name="redPlus2" width="48" height="70"/>
+        <image name="uno_back" width="48" height="74"/>
         <image name="yellow1" width="47" height="71"/>
-        <image name="yellow5" width="46" height="69"/>
-        <image name="yellow8" width="47" height="69"/>
     </resources>
 </document>

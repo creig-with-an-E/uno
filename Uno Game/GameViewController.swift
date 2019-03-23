@@ -1,20 +1,25 @@
-//
-//  GameViewController.swift
-//  Uno Game
-//
-//  Created by laptop on 2019-03-21.
-//  Copyright © 2019 laptop. All rights reserved.
-//
-
+/*  Read following and append as needed.
+ 
+    Game Controller
+ 
+    this handles all game logic
+ 
+    when game first created the loadCards function shall be called to share out all the cards
+    The showCards function is used to populate the onscreen imageViews
+*/
 import UIKit
 
 class GameViewController: UIViewController {
 
     @IBOutlet var playercardImageView: [UIImageView]!   //array of the player cards image view.
     
+    @IBOutlet weak var menuView: UIView!
+    
     
     @IBOutlet weak var discardPileImageView: UIImageView!   //reference to the discard pile
     
+    
+    //arrays that handle in game state
     var deck: [String] = []             //array of all cards
     var playerCards: [String] = []      //players cards
     var cpuCards:[String] = []          //cpu cards
@@ -24,6 +29,7 @@ class GameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         showCard()
+        menuView.isHidden = true
     }
     
     override func viewDidLoad() {
@@ -69,6 +75,12 @@ class GameViewController: UIViewController {
         discardPileImageView.image = UIImage(named: discardPile[0])
         
     }
+    
+    
+    @IBAction func menuButton(_ sender: Any) {
+        menuView.isHidden = !menuView.isHidden
+    }
+    
     
 
     /*

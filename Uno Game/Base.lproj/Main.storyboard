@@ -244,6 +244,9 @@
                                 <state key="normal" title="View full-screen">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="fDd-Yu-Q25" kind="show" id="X96-Oe-k3Z"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick Card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d23-F5-HR2">
                                 <rect key="frame" x="53" y="415" width="53" height="28"/>
@@ -343,6 +346,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZm-4d-jBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2444.9275362318845" y="521.73913043478262"/>
+        </scene>
+        <!--Player Cards View Controller-->
+        <scene sceneID="UvJ-vR-eGA">
+            <objects>
+                <viewController id="fDd-Yu-Q25" customClass="PlayerCardsViewController" customModule="Uno_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w0p-LM-3Vq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="9eF-RT-SLQ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WtW-SF-fWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2345" y="1278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QQT-aK-VUx">

@@ -11,6 +11,8 @@ import UIKit
 
 class GameViewController: UIViewController {
 
+    public var SelectedCards: [String] = []
+    
     @IBOutlet var playercardImageView: [UIImageView]!   //array of the player cards image view.
     
     @IBOutlet weak var menuView: UIView!
@@ -21,7 +23,8 @@ class GameViewController: UIViewController {
     
     //arrays that handle in game state
     var deck: [String] = []             //array of all cards
-    var playerCards: [String] = []      //players cards
+    
+   public var playerCards: [String] = []      //players cards
     var cpuCards:[String] = []          //cpu cards
     var discardPile: [String] = []      //array of played cards
     
@@ -37,6 +40,8 @@ class GameViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -67,8 +72,10 @@ class GameViewController: UIViewController {
     
     
     func showCard(){
+        //calls loadcards method
+        //and shares all the cards
         loadCards()
-        print(playerCards)
+       // print(playerCards)
         for i in 0...playercardImageView.count-1 {
                playercardImageView[i].image = UIImage(named: playerCards[i] )
         }
@@ -81,8 +88,14 @@ class GameViewController: UIViewController {
         menuView.isHidden = !menuView.isHidden
     }
     
-    
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is PlayerCardsViewController
+        {
+            let vc = segue.destination as? PlayerCardsViewController
+            vc?.playerCards = self.playerCards
+        }
+    }
     /*
     // MARK: - Navigation
 

@@ -14,12 +14,14 @@ class PlayerCardsViewController: UIViewController {
     public var playerCards: [String] = []
     public var SelectedCards: [String] = []
     //players cards
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      //ß   print(GameViewController.playerCards)
-        // Do any additional setup after loading the vießßßßw.
+        // Do any additional setup after loading the view.
         
+
         var count: Int
         count = 50
         
@@ -28,9 +30,16 @@ class PlayerCardsViewController: UIViewController {
         let imageName = playerCards[i]
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
-        
+            
+            
         imageView.frame = CGRect(x: 150, y: count, width: 100, height: 100)
+            
+            imageView.isUserInteractionEnabled = true
+                    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PlayerCardsViewController.connected(_:)))
+            imageView.addGestureRecognizer(tapGestureRecognizer)
+            
         view.addSubview(imageView)
+            
             count+=140
         }
         
@@ -38,7 +47,24 @@ class PlayerCardsViewController: UIViewController {
         
     }
     
+    @objc func connected(_ sender:AnyObject){
+        print("you tap image number : \(sender.view.tag)")
+        if(sender.view.frame.minX != 200){
+        sender.view.frame = CGRect(x: 200, y: sender.view.frame.minY, width: sender.view.frame.width, height: sender.view.frame.height)
+        }else{
+            sender.view.frame = CGRect(x: 150, y: sender.view.frame.minY, width: sender.view.frame.width, height: sender.view.frame.height)
+        }
+    }
 
+    /*@objc func imageTapped(gesture: UIGestureRecognizer) {
+        // if the tapped view is a UIImageView then set it to imageview
+        print("Image Tapped123")
+        if (gesture.view as? UIImageView) != nil {
+            print("Image Tapped")
+            //Here you can initiate your new ViewController
+            
+        }
+    }*/
     /*
     // MARK: - Navigation
 

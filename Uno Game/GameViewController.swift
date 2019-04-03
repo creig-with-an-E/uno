@@ -77,9 +77,8 @@ class GameViewController: UIViewController {
         }
         
         //share to player 1
-        let num: Int = deck.count
         for _ in 1...playercardImageView.count{
-            playerCards.append(deck.remove(at: Int(arc4random_uniform(UInt32(num-1)))))
+            playerCards.append(deck.remove(at: Int(arc4random_uniform(UInt32(deck.count)-1))))
            
         }
         

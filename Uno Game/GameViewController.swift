@@ -17,7 +17,9 @@ class GameViewController: UIViewController {
     @IBOutlet var playercardImageView: [UIImageView]!   //array of the player cards image view.
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var discardPileImageView: UIImageView!   //reference to the discard pile
-    
+    @IBOutlet weak var cardCount: UILabel!
+    @IBOutlet weak var drawCard: UIButton!
+    @IBOutlet weak var pickCard: UIButton!
     
     //array for the cards left in deck
     var deck: [String] = []             //array of all cards
@@ -33,12 +35,14 @@ class GameViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        showCard()
+        
         menuView.isHidden = true
+        cardCount.text = String(deck.count) //show how many cards left in draw deck
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showCard()
         let jsonData = GameViewController.readJSONFromFile(fileName: "Game")
         // Do any additional setup after loading the view.
     }
@@ -70,10 +74,16 @@ class GameViewController: UIViewController {
     
     func loadCards(){
         for suits in cardSuits{
-            for i in 1...9{
+            for i in 0...12{
                 //integer values appended to each card suit
                 deck.append("\(suits)\(i)")
             }
+            for k in 1...12{
+                //duplicates
+                deck.append("\(suits)\(k)")
+            }
+            deck.append("wildC")
+            deck.append("wildPlus")
         }
         
         //share to player 1
@@ -86,10 +96,9 @@ class GameViewController: UIViewController {
         
         
         //top card
-        discardPile.append(deck.remove(at: Int.random(in: 1..<deck.count)))
+        discardPile.append(deck.remove(at: Int(arc4random_uniform(UInt32(deck.count)-1))))
         
     }
-    
     
     
     func showCard(){
@@ -104,6 +113,9 @@ class GameViewController: UIViewController {
         
     }
     
+    func cardTap(gesture: UIGestureRecognizer) {
+        //show pick card button when user clicks on a player card
+    }
     
     @IBAction func menuButton(_ sender: Any) {
         menuView.isHidden = !menuView.isHidden

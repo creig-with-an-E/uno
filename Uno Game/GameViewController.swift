@@ -9,26 +9,28 @@
 */
 import UIKit
 
+
 class GameViewController: UIViewController {
 
     public var SelectedCards: [String] = []
-    
+
     @IBOutlet var playercardImageView: [UIImageView]!   //array of the player cards image view.
-    
     @IBOutlet weak var menuView: UIView!
-    
-    
     @IBOutlet weak var discardPileImageView: UIImageView!   //reference to the discard pile
     
     
-    //arrays that handle in game state
+    //array for the cards left in deck
     var deck: [String] = []             //array of all cards
     
-   public var playerCards: [String] = []      //players cards
+    //initializing dictionary for game state
+    static var gameState: [String:AnyObject] = [:]
+    
+    var playerCards: [String] = []      //players cards
     var cpuCards:[String] = []          //cpu cards
     var discardPile: [String] = []      //array of played cards
     
     let cardSuits = ["green","yellow","blue","red"]
+    
     
     override func viewWillAppear(_ animated: Bool) {
         showCard()
@@ -37,16 +39,34 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let jsonData = GameViewController.readJSONFromFile(fileName: "Game")
         // Do any additional setup after loading the view.
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    //read JSON data
+    
+    static func readJSONFromFile(fileName: String) -> Any?
+    {
+        var json: Any?
+        if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
+            do {
+                let fileUrl = URL(fileURLWithPath: path)
+                // Getting data from JSON file using the file URL
+                let data = try Data(contentsOf: fileUrl, options: .mappedIfSafe)
+                json = try? JSONSerialization.jsonObject(with: data)
+            } catch {
+                // Handle error here
+            }
+        }
+        return json
+    }
+    
     
     func loadCards(){
         for suits in cardSuits{
@@ -57,8 +77,10 @@ class GameViewController: UIViewController {
         }
         
         //share to player 1
+        let num: Int = deck.count
         for _ in 1...playercardImageView.count{
-            playerCards.append(deck.remove(at: Int.random(in: 1...deck.count-1)))
+            playerCards.append(deck.remove(at: Int(arc4random_uniform(UInt32(num-1)))))
+           
         }
         
         //share to cpu

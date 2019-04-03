@@ -292,6 +292,9 @@
                                 <state key="normal" title="Draw Card">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="drawCard:" destination="PcP-rK-zCT" eventType="touchUpInside" id="c3v-Ck-IxV"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RF6-Q8-98p">
                                 <rect key="frame" x="164" y="505" width="85" height="30"/>
@@ -300,7 +303,14 @@
                                 <state key="normal" title="Pick Card">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="pickCard:" destination="PcP-rK-zCT" eventType="touchUpInside" id="Pi9-i3-O7X"/>
+                                </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fTC-hj-lyd">
+                                <rect key="frame" x="0.0" y="530" width="414" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3Sh-5A-3rc"/>
@@ -309,9 +319,10 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cardCount" destination="vs5-Lm-Zqu" id="Lmf-qX-Io9"/>
+                        <outlet property="cardPicker" destination="fTC-hj-lyd" id="LNZ-CM-sKL"/>
                         <outlet property="discardPileImageView" destination="Rfz-0z-6Tb" id="UM7-hh-2if"/>
+                        <outlet property="drawCardBtn" destination="fwb-to-IY5" id="zcI-UH-vK8"/>
                         <outlet property="menuView" destination="LvP-UF-1Ff" id="19f-xI-ffo"/>
-                        <outlet property="pickCard" destination="RF6-Q8-98p" id="r9h-8P-Bah"/>
                         <outletCollection property="playercardImageView" destination="TIE-3A-SV7" collectionClass="NSMutableArray" id="Qm5-IT-1HS"/>
                         <outletCollection property="playercardImageView" destination="lT5-0u-yvx" collectionClass="NSMutableArray" id="xDA-5m-rpH"/>
                         <outletCollection property="playercardImageView" destination="S6i-wU-3FV" collectionClass="NSMutableArray" id="M6c-D3-F56"/>

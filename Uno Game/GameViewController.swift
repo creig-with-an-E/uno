@@ -10,16 +10,47 @@
 import UIKit
 
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerSuits.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerSuits[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //
+    }
 
     public var SelectedCards: [String] = []
 
     @IBOutlet var playercardImageView: [UIImageView]!   //array of the player cards image view.
+   
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var discardPileImageView: UIImageView!   //reference to the discard pile
     @IBOutlet weak var cardCount: UILabel!
-    @IBOutlet weak var drawCard: UIButton!
-    @IBOutlet weak var pickCard: UIButton!
+    @IBOutlet weak var drawCardBtn: UIButton!
+    @IBAction func drawCard(_ sender: UIButton) {
+        var newC = deck.remove(at: Int(arc4random_uniform(UInt32(deck.count)-1)))
+        //needs to add imageview to player deck
+        print("\(newC)")
+        cardCount.text = String(deck.count)
+        drawCardBtn.isEnabled = false
+    }
+    @IBAction func pickCard(_ sender: UIButton) {
+        //pick selected card
+        //check if move is valid
+        //show message if it's not
+    }
+    
+    //wild card option
+    @IBOutlet weak var cardPicker: UIPickerView!
+    var pickerSuits: [String] = [String]()
     
     //array for the cards left in deck
     var deck: [String] = []             //array of all cards
@@ -45,6 +76,8 @@ class GameViewController: UIViewController {
         showCard()
         let jsonData = GameViewController.readJSONFromFile(fileName: "Game")
         // Do any additional setup after loading the view.
+        pickerSuits = ["Blue", "Yellow", "Green", "Red"]
+        createPicker()
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,6 +104,21 @@ class GameViewController: UIViewController {
         return json
     }
     
+    func createPicker() {
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        
+    }
+    func wildColorPick() {
+        let tool = UIToolbar()
+        tool.sizeToFit()
+        
+        let pickBtn = UIBarButtonItem(title: "Pick", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+        tool.setItems([pickBtn], animated: false)
+        tool.isUserInteractionEnabled = true
+        
+        //selected card goes to discard pile
+    }
     
     func loadCards(){
         for suits in cardSuits{

@@ -5,6 +5,7 @@
     when game first created the loadCards function shall be called to share out all the cards
     The showCards function is used to populate the onscreen imageViews
     jsonFile is read at game load to check if there is any saved game-> this is implemented in the function readJSONData within gameController
+    Game data is in the form of a struct
 */
 import UIKit
 
@@ -32,7 +33,54 @@ class GameViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        showCard()
+        //card tap recognizer
+
+        
+        if(self.playerCards.count == 0){
+            showCard()
+        }else{
+            
+            //var count: Int
+            //count = playerCards.count
+            print(playerCards.count)
+            //var x = 30
+            for i in 0...playerCards.count-1{
+                
+                
+                //  let imageName = playerCards[i]
+                //let image = UIImage(named: imageName)
+                // let imageView = UIImageView(image: image!)
+                playercardImageView[i].image = UIImage(named: playerCards[i] )
+                discardPileImageView.image = UIImage(named: discardPile[discardPile.count-1])
+                print(discardPile)
+                
+                /*  if(i == 0){
+                 imageView.frame = CGRect(x: x, y: 550, width: 40, height: 80)
+                 
+                 }else{
+                 imageView.frame = CGRect(x: x, y: 550, width: 60, height: 80)
+                 }
+                 imageView.tag = i
+                 
+                 imageView.isUserInteractionEnabled = true
+                 let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PlayerCardsViewController.connected(_:)))
+                 imageView.addGestureRecognizer(tapGestureRecognizer)*/
+                
+                // view.addSubview(imageView)
+                //print(imageView)
+                //   count+=
+                //   x+=60
+            }
+            
+        }
+        if(SelectedCards.count > 0){
+            //  self.SelectedCards.append(valueSent.)
+            // self.SelectedCards = SelectedCards + valueSent
+            let alertC = UIAlertController(title: "Game State", message: "Your cards has been played.", preferredStyle: UIAlertControllerStyle.alert)
+            let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+            alertC.addAction(action)
+            self.present(alertC, animated: true, completion: nil)
+        }
         menuView.isHidden = true
         let jsonArray = GameViewController.readJSONFromFile(fileName: "Game")
         var model = Game(jsonArray as! [String : Any])
@@ -53,7 +101,9 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    @objc func userCardTap(sender:UITapGestureRecognizer? = nil){
+        print("card clicked")
+    }
     
     static func readJSONFromFile(fileName: String) -> Any?
     {
@@ -103,6 +153,7 @@ class GameViewController: UIViewController {
         //and shares all the cards
         loadCards()
        // print(playerCards)
+
         for i in 0...playercardImageView.count-1 {
                playercardImageView[i].image = UIImage(named: playerCards[i] )
         }
@@ -121,6 +172,7 @@ class GameViewController: UIViewController {
         {
             let vc = segue.destination as? PlayerCardsViewController
             vc?.playerCards = self.playerCards
+             vc?.discardPile = self.discardPile
         }
     }
     /*

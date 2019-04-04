@@ -129,7 +129,7 @@
         <!--Main game-->
         <scene sceneID="FmL-FN-H9H">
             <objects>
-                <viewController title="Main game" id="PcP-rK-zCT" customClass="GameViewController" customModule="Uno_Game" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="GameViewController" storyboardIdentifier="GameViewController" title="Main game" id="PcP-rK-zCT" customClass="GameViewController" customModule="Uno_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vHh-Jc-TUy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -350,10 +350,20 @@
         <!--Player Cards View Controller-->
         <scene sceneID="UvJ-vR-eGA">
             <objects>
-                <viewController id="fDd-Yu-Q25" customClass="PlayerCardsViewController" customModule="Uno_Game" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="PlayerCardsViewController" storyboardIdentifier="PlayerCardsViewController" id="fDd-Yu-Q25" customClass="PlayerCardsViewController" customModule="Uno_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w0p-LM-3Vq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxf-qU-TMM">
+                                <rect key="frame" x="353" y="137" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PLAY"/>
+                                <connections>
+                                    <action selector="PLAYCARDS:" destination="fDd-Yu-Q25" eventType="touchUpInside" id="hOS-kI-Y2A"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9eF-RT-SLQ"/>
                     </view>

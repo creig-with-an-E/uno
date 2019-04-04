@@ -35,12 +35,18 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         showCard()
         menuView.isHidden = true
+        let jsonArray = GameViewController.readJSONFromFile(fileName: "Game")
+        var model = Game(jsonArray as! [String : Any])
+        print(model.userCards)
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let jsonData = GameViewController.readJSONFromFile(fileName: "Game")
-        // Do any additional setup after loading the view.
+
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,10 +55,11 @@ class GameViewController: UIViewController {
     }
     
     
-    //read JSON data
     
     static func readJSONFromFile(fileName: String) -> Any?
     {
+        //function reads game state from Game.json file at the start of game
+        //data is stored as key value pairs
         var json: Any?
         if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
             do {

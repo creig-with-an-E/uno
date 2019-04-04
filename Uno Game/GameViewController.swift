@@ -1,11 +1,10 @@
 /*  Read following and append as needed.
  
-    Game Controller
- 
-    this handles all game logic
+    Game Controller->this handles all game logic
  
     when game first created the loadCards function shall be called to share out all the cards
     The showCards function is used to populate the onscreen imageViews
+    jsonFile is read at game load to check if there is any saved game-> this is implemented in the function readJSONData within gameController
 */
 import UIKit
 

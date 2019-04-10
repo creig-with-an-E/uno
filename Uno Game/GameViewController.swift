@@ -8,7 +8,7 @@
     Game data is in the form of a struct
 */
 import UIKit
-
+import Foundation
 
 class GameViewController: UIViewController {
 
@@ -17,8 +17,8 @@ class GameViewController: UIViewController {
     @IBOutlet var playercardImageView: [UIImageView]!   //array of the player cards image view.
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var discardPileImageView: UIImageView!   //reference to the discard pile
-    
-    
+    public var MachineSelectedCard: [String] = []
+    public var MachineCard: [String] = []
     //array for the cards left in deck
     var deck: [String] = []             //array of all cards
     
@@ -42,7 +42,7 @@ class GameViewController: UIViewController {
             
             //var count: Int
             //count = playerCards.count
-            print(playerCards.count)
+           // print(playerCards.count)
             //var x = 30
             for i in 0...playerCards.count-1{
                 
@@ -52,7 +52,7 @@ class GameViewController: UIViewController {
                 // let imageView = UIImageView(image: image!)
                 playercardImageView[i].image = UIImage(named: playerCards[i] )
                 discardPileImageView.image = UIImage(named: discardPile[discardPile.count-1])
-                print(discardPile)
+               // print(discardPile)
                 
                 /*  if(i == 0){
                  imageView.frame = CGRect(x: x, y: 550, width: 40, height: 80)
@@ -70,6 +70,8 @@ class GameViewController: UIViewController {
                 //print(imageView)
                 //   count+=
                 //   x+=60
+                
+                machinePlayer()
             }
             
         }
@@ -82,9 +84,12 @@ class GameViewController: UIViewController {
             self.present(alertC, animated: true, completion: nil)
         }
         menuView.isHidden = true
+        
+        
+        
         let jsonArray = GameViewController.readJSONFromFile(fileName: "Game")
         var model = Game(jsonArray as! [String : Any])
-        print(model.userCards)
+        //print(model.userCards)
         
         
     }
@@ -135,14 +140,21 @@ class GameViewController: UIViewController {
         //share to player 1
         for _ in 1...playercardImageView.count{
             playerCards.append(deck.remove(at: Int(arc4random_uniform(UInt32(deck.count)-1))))
-           
+            cpuCards.append(deck.remove(at: Int(arc4random_uniform(UInt32(deck.count)-1))))
+
         }
         
+        //share to MachinePlayer
+       /* for _ in 1...0{
+            MachineCard.append(deck.remove(at: Int(arc4random_uniform(UInt32(deck.count)-1))))
+            *
+        }
+        */
         //share to cpu
         
         
         //top card
-        discardPile.append(deck.remove(at: Int.random(in: 1..<deck.count)))
+        discardPile.append(deck.remove(at: Int(arc4random_uniform(UInt32(deck.count)-1))))
         
     }
     
@@ -173,7 +185,166 @@ class GameViewController: UIViewController {
             let vc = segue.destination as? PlayerCardsViewController
             vc?.playerCards = self.playerCards
              vc?.discardPile = self.discardPile
+            vc?.cpuCards = self.cpuCards
         }
+    }
+    
+    public func machinePlayer(){
+       // var number: Int = 0
+        var number: [[Any]] = []
+        number.append( [] )
+         number.append( [] )
+        number.append( [] )
+        number.append( [] )
+         number.append( [] )
+         number.append( [] )
+         number.append( [] )
+        number.append( [] )
+        
+        //print(discardPile[discardPile.count-1])
+       // print(discardPile.count)
+        print(discardPile)
+        print(cpuCards)
+        number[2].append(Int.parse(from: discardPile[discardPile.count-1])!)
+        number[3].append(String.parse(from: discardPile[discardPile.count-1])!)
+        number[4].append(0)
+        number[4].append(0)
+         number[7].append(0)
+       // print(number[0])
+         //print(cpuCards)
+        for i in 0...cpuCards.count-1 {
+            
+          // discardPile[discardPile.count-1] = UIImage(named: playerCards[i] )
+            //let number = Int.parse(from: cpuCards[i])
+          //  number = Int.parse(from: cpuCards[i])!
+            number[0].append(Int.parse(from: cpuCards[i])!)
+            number[1].append(String.parse(from: cpuCards[i])!)
+                // Do something with this number
+               // print(number)
+            
+          //  print(number)
+        }
+        //print(
+        // number[5].append("no");
+        for i in 0...cpuCards.count-1 {
+            //number[0].contains(number[2][1])
+            /*if(number[2].contains(where: { $0 == number[0][i] })){
+                var
+            }*/
+            //var getany: Any = number[0][i]
+            //getany = number[2][0]
+          //  print(isEqual(type: Int.self, a: number[2][0], b: number[0][i]))
+             //number[5].append("no");
+            //number[4]
+            if(isEqual(type: Int.self, a: number[2][0], b: number[0][i])) {
+               // print("damn")
+                number[4][0] =  1;
+                //number[5][i] =  "yes";
+                number[5].append("yes");
+            }else{
+               //  number[5][i] =  "yes";
+                number[5].append("no");
+            }
+            /*number[0].append(Int.parse(from: cpuCards[i])!)
+            number[1].append(String.parse(from: cpuCards[i])!)*/
+            
+        }
+        for i in 0...cpuCards.count-1 {
+            //number[0].contains(number[2][1])
+            /*if(number[2].contains(where: { $0 == number[0][i] })){
+             var
+             }*/
+            //var getany: Any = number[0][i]
+            //getany = number[2][0]
+       //     print(isEqual(type: Int.self, a: number[3][0], b: number[1][i]))
+            //number[5][i] =  "no";
+            if(isEqual(type: String.self, a: number[3][0], b: number[1][i])) {
+              //  print("damn1")
+                
+                number[4][1] =  1;
+                //number[6][i] =  "yes";
+                 number[6].append("yes");
+            }else{
+                 number[6].append("no");
+            }
+            /*number[0].append(Int.parse(from: cpuCards[i])!)
+             number[1].append(String.parse(from: cpuCards[i])!)*/
+            
+        }
+        
+        if(isEqual(type: Int.self, a:  number[4][1], b: 1) && isEqual(type: Int.self, a:  number[4][0], b: 1)){
+            
+            number[7][0] = randomInt(min: 1, max: 2)
+            print("random")
+        }else{
+            if(isEqual(type: Int.self, a:  number[4][1], b: 1) && isEqual(type: Int.self, a:  number[4][0], b: 1) == false ){
+                number[7][0] = 2;
+                print("color")
+            }else{
+                if(isEqual(type: Int.self, a:  number[4][1], b: 1)==false && isEqual(type: Int.self, a:  number[4][0], b: 1) ){
+                    number[7][0] = 1;
+                    print("number")
+                }else{
+                    
+                }
+            }
+        }
+        
+        if(isEqual(type: Int.self, a:  number[7][0], b: 1) ){
+            
+             for i in 0...cpuCards.count-1 {
+                if(isEqual(type: String.self, a: number[5][i], b: "yes")){
+                    MachineSelectedCard.append(cpuCards[i])
+                }
+            }
+            
+        }else{
+        if(isEqual(type: Int.self, a:  number[4][1], b: 1) ){
+            for i in 0...cpuCards.count-1 {
+                //number[0].contains(number[2][1])
+                /*if(number[2].contains(where: { $0 == number[0][i] })){
+                 var
+                 }*/
+                //var getany: Any = number[0][i]
+                //getany = number[2][0]
+                //     print(isEqual(type: Int.self, a: number[3][0], b: number[1][i]))
+               // number[5][i] =  "no";
+                if(isEqual(type: String.self, a: number[6][i], b: "yes")) {
+                   // print("damn1")
+                  
+                     MachineSelectedCard.append(cpuCards[i])
+                    
+                   // number[4][1] =  1;
+                    //number[5][i] =  "yes";
+                }
+                /*number[0].append(Int.parse(from: cpuCards[i])!)
+                 number[1].append(String.parse(from: cpuCards[i])!)*/
+                
+            }
+    }
+        }
+      // print(number[0])
+        // print(number[1])isEqual(Int.self, a: any1, b: any2)
+       // if(number[2][0] == number[2][0]){
+      /*  print(number[2][0])
+          print(number[3][0])
+        print(number[0])
+        print(number[1])*/
+       // }
+        print(number[7][0])
+        print(MachineSelectedCard)
+        
+        discardPile = discardPile+MachineSelectedCard
+        discardPileImageView.image = UIImage(named: discardPile[discardPile.count-1])
+    }
+    
+    func isEqual<T: Equatable>(type: T.Type, a: Any, b: Any) -> Bool {
+        guard let a = a as? T, let b = b as? T else { return false }
+        
+        return a == b
+    }
+    func randomInt(min: Int, max: Int) -> Int {
+        return min + Int(arc4random_uniform(UInt32(max - min + 1)))
     }
     /*
     // MARK: - Navigation
@@ -185,4 +356,19 @@ class GameViewController: UIViewController {
     }
     */
 
+}
+
+extension Int {
+    static func parse(from string: String) -> Int? {
+        return Int(string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
+    }
+}
+extension String {
+    static func parse(from string: String) -> String? {
+        /*let string = (string.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet()) as NSArray).componentsJoinedByString("")*/
+        //return String(string.components(separatedBy: CharacterSet.decimalDigits.in).joined())
+        //return String(string.components(separatedBy: CharacterSet.).joined())
+       // return "".join(string.components(separatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)))
+        return string.components(separatedBy: CharacterSet.decimalDigits).joined()
+    }
 }

@@ -58,9 +58,8 @@ class GameViewController: UIViewController {
         
         
         let jsonArray = GameViewController.readJSONFromFile(fileName: "Game")
-        var model = Game(jsonArray as! [String : Any])
+        _ = Game(jsonArray as! [String : Any])
 
-        
         
     }
     
@@ -235,15 +234,14 @@ class GameViewController: UIViewController {
         if(isEqual(type: Int.self, a:  number[4][1], b: 1) && isEqual(type: Int.self, a:  number[4][0], b: 1)){
             
             number[7][0] = randomInt(min: 1, max: 2)
-            print("random")
+      
         }else{
             if(isEqual(type: Int.self, a:  number[4][1], b: 1) && isEqual(type: Int.self, a:  number[4][0], b: 1) == false ){
                 number[7][0] = 2;
-                print("color")
             }else{
                 if(isEqual(type: Int.self, a:  number[4][1], b: 1)==false && isEqual(type: Int.self, a:  number[4][0], b: 1) ){
                     number[7][0] = 1;
-                    print("number")
+                 
                 }else{
                     
                 }
@@ -277,20 +275,12 @@ class GameViewController: UIViewController {
                    // number[4][1] =  1;
                     //number[5][i] =  "yes";
                 }
-                /*number[0].append(Int.parse(from: cpuCards[i])!)
-                 number[1].append(String.parse(from: cpuCards[i])!)*/
+
                 
             }
     }
         }
-      // print(number[0])
-        // print(number[1])isEqual(Int.self, a: any1, b: any2)
-       // if(number[2][0] == number[2][0]){
-      /*  print(number[2][0])
-          print(number[3][0])
-        print(number[0])
-        print(number[1])*/
-       // }
+
         print(number[7][0])
         print(MachineSelectedCard)
         

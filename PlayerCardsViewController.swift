@@ -40,7 +40,7 @@ class PlayerCardsViewController: UIViewController {
             getPlayerController.cpuCards =  self.cpuCards + self.cpuCards
             getPlayerController.discardPile =  self.discardPile + self.SelectedCards
             // print( getPlayerController.playerCards)
-            self.navigationController!.viewControllers.removeAll()
+            self.navigationController!.viewControllers.removeLast()
             navigationController?.pushViewController(getPlayerController, animated: true)
             
         }else{

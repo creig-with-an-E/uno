@@ -13,42 +13,48 @@ class PlayerCardsViewController: UIViewController {
    /* vc.playerCards = "Hammock lomo literally microdosing street art pour-over"*/
     public var playerCards: [String] = []
     public var SelectedCards: [String] = []
+    var noCards: [String] = []
     //players cards
     var discardPile: [String] = []
     
     @IBAction func PLAYCARDS(_ sender: Any) {
         
         
-        // print("What have I done")
-        //  if(delegate != nil){
-        //  print(SelectedCards)
-        //   }
-        //GameViewController.
-        //delegate?.getSelectedCards(val/ueSent: self.SelectedCards)
         let getPlayerController = storyboard?.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-        if(SelectedCards.count>0){
-            for i in 0...SelectedCards.count-1{
-                // if playerCards.contains(sender.view.tag) {
-                //  print("yes remove")
-                //     playerCards.remove(at: SelectedCards[i])
-                // }
-                playerCards = playerCards.filter{ $0 != SelectedCards[i] }
-                //   playerCards[playerCards]
+        
+        
+        //checking if move valid
+        var cards = SelectedCards
+        cards.append(discardPile[discardPile.count-1])
+        if(GameMediator.compare(cards)){
+            //if move permitted this block is executed
+            print("executing")
+            if(SelectedCards.count>0){
+                for i in 0...SelectedCards.count-1{
+                    playerCards = playerCards.filter{ $0 != SelectedCards[i] }
+                }
             }
+            getPlayerController.SelectedCards = self.SelectedCards
+            getPlayerController.playerCards = self.playerCards
+            getPlayerController.discardPile =  self.discardPile + self.SelectedCards
+            // print( getPlayerController.playerCards)
+            navigationController?.pushViewController(getPlayerController, animated: true)
+            
+        }else{
+
+            navigationController?.popViewController(animated: true)
+            
         }
-        getPlayerController.SelectedCards = self.SelectedCards
-        getPlayerController.playerCards = self.playerCards
-        getPlayerController.discardPile =  self.discardPile + self.SelectedCards
-        // print( getPlayerController.playerCards)
-        self.navigationController?.pushViewController(getPlayerController, animated: true)
+
+
+
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     //ß   print(GameViewController.playerCards)
-        // Do any additional setup after loading the view.
-        
+     //  print(GameViewController.playerCards)
+    //   Do any additional setup after loading the view.
 
         var count: Int
         count = 50
@@ -73,18 +79,9 @@ class PlayerCardsViewController: UIViewController {
             count+=140
         }
         
-      print(playerCards)
         
     }
-    /*
-    @objc func connected(_ sender:AnyObject){
-        print("you tap image number : \(sender.view.tag)")
-        if(sender.view.frame.minX != 200){
-        sender.view.frame = CGRect(x: 200, y: sender.view.frame.minY, width: sender.view.frame.width, height: sender.view.frame.height)
-        }else{
-            sender.view.frame = CGRect(x: 150, y: sender.view.frame.minY, width: sender.view.frame.width, height: sender.view.frame.height)
-        }
-    }*/
+
 
     @objc func connected(_ sender:AnyObject){
         //print("you tap image number : \(sender.view.tag)")
@@ -100,26 +97,16 @@ class PlayerCardsViewController: UIViewController {
                     SelectedCards.append(playerCards[sender.view.tag]);
                 }
             }
-            // print(sender.view.tag)
-            //print(SelectedCards[0])
+
             
         }else{
             if SelectedCards.contains(playerCards[sender.view.tag]) {
-                // print("yes remove")
                 SelectedCards = SelectedCards.filter{ $0 != playerCards[sender.view.tag] }
             }
             sender.view.frame = CGRect(x: 150, y: sender.view.frame.minY, width: sender.view.frame.width, height: sender.view.frame.height)
         }
     }
-    /*@objc func imageTapped(gesture: UIGestureRecognizer) {
-        // if the tapped view is a UIImageView then set it to imageview
-        print("Image Tapped123")
-        if (gesture.view as? UIImageView) != nil {
-            print("Image Tapped")
-            //Here you can initiate your new ViewController
-            
-        }
-    }*/
+
     /*
     // MARK: - Navigation
 

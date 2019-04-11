@@ -12,21 +12,19 @@ import UIKit
 
 class GameViewController: UIViewController {
 
-    public var SelectedCards: [String] = []
-
     @IBOutlet var playercardImageView: [UIImageView]!   //array of the player cards image view.
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var discardPileImageView: UIImageView!   //reference to the discard pile
     
     
     //array for the cards left in deck
-    var deck: [String] = []             //array of all cards
-    
-    //initializing dictionary for game state
+
     static var gameState: [String:AnyObject] = [:]
     
+    var deck: [String] = []             //array of all cards
+    var SelectedCards: [String] = []
     var playerCards: [String] = []      //players cards
-    var cpuCards:[String] = []          //cpu cards
+    var cpuCards:[String] = []          //cpu cardss
     var discardPile: [String] = []      //array of played cards
     
     let cardSuits = ["green","yellow","blue","red"]
@@ -40,42 +38,16 @@ class GameViewController: UIViewController {
             showCard()
         }else{
             
-            //var count: Int
-            //count = playerCards.count
-            print(playerCards.count)
-            //var x = 30
             for i in 0...playerCards.count-1{
                 
-                
-                //  let imageName = playerCards[i]
-                //let image = UIImage(named: imageName)
-                // let imageView = UIImageView(image: image!)
+
                 playercardImageView[i].image = UIImage(named: playerCards[i] )
                 discardPileImageView.image = UIImage(named: discardPile[discardPile.count-1])
-                print(discardPile)
-                
-                /*  if(i == 0){
-                 imageView.frame = CGRect(x: x, y: 550, width: 40, height: 80)
-                 
-                 }else{
-                 imageView.frame = CGRect(x: x, y: 550, width: 60, height: 80)
-                 }
-                 imageView.tag = i
-                 
-                 imageView.isUserInteractionEnabled = true
-                 let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PlayerCardsViewController.connected(_:)))
-                 imageView.addGestureRecognizer(tapGestureRecognizer)*/
-                
-                // view.addSubview(imageView)
-                //print(imageView)
-                //   count+=
-                //   x+=60
+
             }
             
         }
         if(SelectedCards.count > 0){
-            //  self.SelectedCards.append(valueSent.)
-            // self.SelectedCards = SelectedCards + valueSent
             let alertC = UIAlertController(title: "Game State", message: "Your cards has been played.", preferredStyle: UIAlertControllerStyle.alert)
             let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
             alertC.addAction(action)
@@ -84,7 +56,7 @@ class GameViewController: UIViewController {
         menuView.isHidden = true
         let jsonArray = GameViewController.readJSONFromFile(fileName: "Game")
         var model = Game(jsonArray as! [String : Any])
-        print(model.userCards)
+//        print(model.userCards)
         
         
     }

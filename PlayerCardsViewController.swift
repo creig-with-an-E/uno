@@ -16,6 +16,7 @@ class PlayerCardsViewController: UIViewController {
     var noCards: [String] = []
     //players cards
     var discardPile: [String] = []
+     var cpuCards:[String] = []
     
     @IBAction func PLAYCARDS(_ sender: Any) {
         
@@ -36,6 +37,7 @@ class PlayerCardsViewController: UIViewController {
             }
             getPlayerController.SelectedCards = self.SelectedCards
             getPlayerController.playerCards = self.playerCards
+            getPlayerController.cpuCards =  self.cpuCards + self.cpuCards
             getPlayerController.discardPile =  self.discardPile + self.SelectedCards
             // print( getPlayerController.playerCards)
             navigationController?.pushViewController(getPlayerController, animated: true)
@@ -43,11 +45,10 @@ class PlayerCardsViewController: UIViewController {
         }else{
 
             navigationController?.popViewController(animated: true)
+//            self.navigationController?.pushViewController(getPlayerController, animated: true)
+
             
         }
-
-
-
     }
     
     

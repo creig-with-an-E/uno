@@ -28,6 +28,7 @@ class GameViewController: UIViewController {
     var discardPile: [String] = []      //array of played cards
     
     let cardSuits = ["green","yellow","blue","red"]
+    var alertMessage: String = ""
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +49,7 @@ class GameViewController: UIViewController {
             
         }
         if(SelectedCards.count > 0){
-            let alertC = UIAlertController(title: "Game State", message: "Your cards has been played.", preferredStyle: UIAlertControllerStyle.alert)
+            let alertC = UIAlertController(title: "Game State", message: "Cards Played", preferredStyle: UIAlertControllerStyle.alert)
             let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
             alertC.addAction(action)
             self.present(alertC, animated: true, completion: nil)

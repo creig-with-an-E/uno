@@ -39,15 +39,13 @@ class PlayerCardsViewController: UIViewController {
             getPlayerController.playerCards = self.playerCards
             getPlayerController.cpuCards =  self.cpuCards + self.cpuCards
             getPlayerController.discardPile =  self.discardPile + self.SelectedCards
-            // print( getPlayerController.playerCards)
-            self.navigationController!.viewControllers.removeLast()
+
             navigationController?.pushViewController(getPlayerController, animated: true)
             
         }else{
-
-            navigationController?.popViewController(animated: true)
-//            self.navigationController?.pushViewController(getPlayerController, animated: true)
-
+            getPlayerController.SelectedCards = []
+            navigationController?.popToViewController(getPlayerController,animated: true)
+            
             
         }
     }

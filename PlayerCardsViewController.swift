@@ -43,8 +43,8 @@ class PlayerCardsViewController: UIViewController {
             navigationController?.pushViewController(getPlayerController, animated: true)
             
         }else{
-            getPlayerController.SelectedCards = []
-            navigationController?.popToViewController(getPlayerController,animated: true)
+            
+            navigationController?.popViewController(animated: true)
             
             
         }
